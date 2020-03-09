@@ -1,0 +1,9 @@
+[default]
+vault_addr = https://your-vault-instance
+vault_login_method = okta
+vault_login_username = your.user@your.domain
+login_ids = dev,staging,prod
+
+[login_template]
+aws_profile_name = %(login_id)s
+vault_secret_path = /aws/%(login_id)s/sts/admin
