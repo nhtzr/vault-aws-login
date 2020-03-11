@@ -45,9 +45,9 @@ You can override both the aws-profile and vault secret that will correspond to a
 adding a `login_override` section in your `~/.vault-aws-login/confg` file:
 
 ```
-[login_override prod]
-aws_profile_name = prod
-vault_secret_path = /aws/prod/sts/developer-role
+[login_override dev_as_default]
+aws_profile_name = default
+vault_secret_path = /aws/dev/sts/admin
 ```
 
 Likewise, the `login_template` describe the generic values that correspond to each login_id:
