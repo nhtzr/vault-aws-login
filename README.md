@@ -4,9 +4,9 @@ without affecting other profiles that you wish to keep un-managed.
 
 ## Installation & Running
 
-- Have python3 installed and in your `$PATH`
-- Copy `./bin/aws_credentials_merge` and `./bin/vault-aws-login` to your path (e.g. `/usr/local/bin`)
-- Copy `./config` to `~/.vault-aws`
+- Make sure [consul-template](https://github.com/hashicorp/consul-template) is installed and in your `$PATH`
+- Run `pip3 install --upgrade vault-aws-login`
+- Run `wget -O - https://nhtzr.github.io/vault-aws-login/vault-aws-config.tgz | tar -C "$HOME" -zxf -`
 - Update `~/.vault-aws/config` with:
     ```
     [default]
@@ -62,7 +62,7 @@ Both the template and overrides are implemented by python3's [ConfigParser.Basic
 
 The above means both that
 * A property in `login_template` can depend on a property in `login_override`, and viceversa.
-* In case of a name clash, the property in `login_override` has higher priority 
+* In case of a name clash, the property in `login_override` has higher priority
 
 This allows the templates to render on arbitrary data, and not just the corresponding login_id
 (Note: `login_id` is populated by the script itself, so it cannot be overridden)
@@ -72,8 +72,8 @@ Most importantly the args given `vault login`, and the `-l`/`--login`/login_ids 
 You can choose to take those properties from any other section by using the `-p`/`--profile` flag,
 and you can use a completely different config file with the `-c`/`--config` flag as well.
 
-For consul-template specific configs, you can modify `~/.vault-aws-config/credentials.hcl` 
-if you want to fine-tune its behavior. There's also the `~/.vault-aws-config/config` option named 
+For consul-template specific configs, you can modify `~/.vault-aws-config/credentials.hcl`
+if you want to fine-tune its behavior. There's also the `~/.vault-aws-config/config` option named
 `extra_ct_flags` in the config profile section (.i.e `[default]`) in case you want to add extra flags like `-once`.
 If you want to keep multiple `credentials.hcl` files, you might want to setup `consul_template_hcl`
 to different values in different config profile sections
