@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="vault-aws-login",
-    version="0.0.4",
+    version="0.0.5",
     author="Ezequiel Rosas",
     author_email="ezequiel.rosas@digitalonus.com",
     description="Stay authenticated in awscli with vault",
