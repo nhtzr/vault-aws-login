@@ -80,7 +80,8 @@ def gen_config(cli_profile_section, cli_config, cli_login,
         template_cmd='%(aws_credentials_merge_path)s '
                      '-o %(credentials_file)s '
                      '-i %(credentials_file)s %(template_dest)s',
-        aws_credentials_merge_path='aws_credentials_merge',))
+        aws_credentials_merge_path='aws_credentials_merge',
+    ))
     config.read(cli_config)
 
     if login_template_section not in config:
