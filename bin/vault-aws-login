@@ -93,8 +93,8 @@ def gen_config(cli_profile_section, cli_config, cli_login,
     return config
 
 
-def gen_vault_login_kwargs(profile, key_prefix='vault_login'):
-    offset = len(key_prefix) + 1 # offset for trimming key prefix
+def gen_vault_login_kwargs(profile, key_prefix='vault_login_'):
+    offset = len(key_prefix)  # offset for trimming key prefix
     return {
         key[offset:]: value
         for key, value
